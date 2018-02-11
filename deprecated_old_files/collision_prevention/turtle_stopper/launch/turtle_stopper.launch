@@ -1,0 +1,4 @@
+<launch>
+	<!-- Let the simulated robot do something -->
+	<node name="stopper" pkg="turtle_stopper" type="stopper" output="screen" />
+</launch>

@@ -1,0 +1,10 @@
+#>>>>TODO:USE DESIRED POSE MSG
+float64 a
+float64 b
+float64 c
+---
+float64 reply
+
+
+#>>>>TODO:RETURN AN INT
+

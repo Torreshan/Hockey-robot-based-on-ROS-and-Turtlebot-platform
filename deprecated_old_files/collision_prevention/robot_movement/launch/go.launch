@@ -1,0 +1,6 @@
+
+
+<launch>
+	
+	<node name="robot_movement" pkg="robot_movement" type="robot_movement" output="screen" />
+</launch>

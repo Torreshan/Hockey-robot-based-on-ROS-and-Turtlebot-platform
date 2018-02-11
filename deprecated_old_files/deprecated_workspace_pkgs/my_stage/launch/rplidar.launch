@@ -1,0 +1,15 @@
+<launch>
+  <!-- Static transform for the Lidar scan -->
+  <node pkg="tf" type="static_transform_publisher" name="lidar_transform_publisher" args="0 0 0.25 3.1415926 0 0 base_link rplidar 100" />
+
+  <!-- RPLidar -->
+
+  <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+    <param name="serial_port"         type="string" value="/dev/rplidar"/>  
+    <param name="serial_baudrate"     type="int"    value="115200"/>
+    <param name="frame_id"            type="string" value="rplidar"/>
+    <param name="inverted"            type="bool"   value="false"/>
+    <param name="angle_compensate"    type="bool"   value="true"/>
+    <remap from="scan" to="lidarscan"/>
+  </node>
+</launch>

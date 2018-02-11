@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--#>>>>TODO: LAUNCH A NODE TO PUBLISH AN STATIC TRANSFORMATION BETWEEN /map and /WORLD WITH A FREQ 100-->
+
+  <!--  <node pkg="tf" type="static_transform_publisher" name="laser" args="0 0 0 x y z w  /uav/base_link_ENU /laser  100"/> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="link" args="0 0 0 0 0 0 1 map world 10"/>
+
+  <!--LAUNCH RVIZ NODE -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtle_vis)/launch/rvizConfigs/turtleTutorial.rviz"/>
+
+
+  <!--#>>>>TODO:LAUNCH TURTLE VISUALIZATION NODE-->
+
+  <node name="turtle_vis_node" pkg="turtle_vis" type="turtle_vis_node" args="1"/> 
+    
+
+  <!--#>>>>TODO:LAUNCH TURTLE CONTROL NODE. AS PART OF THIS NODE LOAD THE YAML FILE WITH THE GAIN PARAMETERS (SEE rvizConfigs/turtle_gains.yaml) -->
+
+
+  <rosparam command="load" file= "$(find turtle_vis)/launch/rvizConfigs/turtle_gains.yaml"/>
+  <node name="turtle_control_node" pkg="turtle_vis" type="turtle_control_node" args="1"/>
+
+  <!-- <node name="turtle_set_position_node" pkg="turtle_vis" type="turtle_set_position" args="1"/> -->
+</launch>

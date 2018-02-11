@@ -1,0 +1,38 @@
+include "turtlebot.inc"
+
+unit_length "m"
+
+window
+(
+  size [620.000 320.000]
+  center [0.000 0.000]
+  show_data 1
+  scale 60.00    # 1 pixel = 0.025 meters
+)
+
+define map model
+(
+  color "black"
+  gui_nose 0
+  gui_grid 0
+)
+
+map
+( 
+  bitmap "hokey.png" 
+#  map_resolution 0.02
+  size [6 3 2.0] 
+#  name "room"
+#  color "gray50"
+  gui_grid 1
+#  gui_outline 1
+)
+
+# throw in a robot
+turtlebot
+(
+  pose [ 0 0 0 0 ]
+  name "turtlebot"
+  color "red"
+)
+ 

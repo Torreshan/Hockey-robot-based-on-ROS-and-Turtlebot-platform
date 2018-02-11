@@ -1,0 +1,28 @@
+roslaunch turtlebot_navigation gmapping_demo.launch
+roslaunch turtlebot_rviz_launchers view_navigation.launch
+roslaunch turtlebot_bringup 3dsensor.launch
+
+roslaunch turtlebot_rviz_launchers view_robot.launch
+roslaunch turtlebot_bringup minimal.launch --screen
+roslaunch turtlebot_teleop keyboard_teleop.launch --screen
+rosrun image_view image_view image:=/camera/rgb/image_raw
+
+
+roslaunch kobuki_auto_docking minimal.launch --screen
+
+roslaunch kobuki_auto_docking activate.launch --screen
+
+
+ssh gruppe3@herz-dame
+
+rosrun map_server map_saver -f /tmp/my_map
+
+ssh gruppe3@kreuz-bube
+
+ssh gruppe3@karo-ass
+
+roslaunch rplidar_ros rplidar.launch
+
+ssh gruppe3@pik-koenig
+
+ViecsyuAmmep

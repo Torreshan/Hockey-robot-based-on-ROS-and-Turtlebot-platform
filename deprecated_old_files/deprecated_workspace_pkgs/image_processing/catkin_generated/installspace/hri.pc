@@ -1,0 +1,8 @@
+prefix=/nas/ei/home/ga62gis/gruppe3/workspace/install
+
+Name: hri
+Description: Description of hri
+Version: 0.0.1
+Cflags: 
+Libs: -L/nas/ei/home/ga62gis/gruppe3/workspace/install/lib 
+Requires: message_runtime

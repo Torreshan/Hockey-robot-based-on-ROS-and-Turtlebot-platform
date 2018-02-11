@@ -1,0 +1,6 @@
+<launch>
+  <node name="tf" pkg="tf" type="static_transform_publisher" args="-11.28 23.27 0 0 0 0 /odom /map 100"/>
+  <node pkg="move_base_tf" type="frame_tf_broadcaster" name="broadcaster_frame" />  
+  <node pkg="move_base_tf" type="move_base" name="listener" />
+
+</launch>

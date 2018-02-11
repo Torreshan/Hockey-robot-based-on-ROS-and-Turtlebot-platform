@@ -1,0 +1,247 @@
+include "turtlebot.inc"
+
+unit_length "m"
+
+window
+(
+  size [620.000 320.000]
+  center [3.000 1.500]
+  show_data 1
+scale 60.00    # 1 pixel = 0.025 meters
+  
+)
+
+#model
+#(
+#  size [10.0 10.0]
+#  color "green"
+#  pose [0 0 0]
+#)
+
+define map model
+(
+  color "black"
+  gui_nose 0
+  gui_boundary 1
+  gui_grid 0
+  gui_movemask 0
+  origin [3 1.5 0 0]
+)
+
+map
+( 
+  bitmap "hokey2.png" 
+  bitmap_resolution 0.1
+
+#  map_resolution 0.02
+  size [6 3 0.5] 
+#  name "room"
+#  color "gray50"
+ gui_grid 1
+#  gui_outline 1
+)
+
+# throw in a robot
+turtlebot
+(
+  pose [ 2.0 2.0 0.0 0.0 ]
+  name "turtlebot"
+  color "red"
+)
+
+
+model 
+(
+  size [0.5 1.0 0]
+  color "yellow"
+  pose [2.250 0.000 0.000 0.000]
+obstacle_return 0
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.5 1.0 0]
+  color "blue"
+  pose [-2.250 0.000 0.000 0.000]
+obstacle_return 0
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.05 3 0]
+  color "red"
+  pose [0 0.000 0.000 0.000]
+obstacle_return 0
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.05 3 0]
+  color "blue"
+  pose [1 0.000 0.000 0.000]
+obstacle_return 0
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.05 3 0]
+  color "blue"
+  pose [-1 0.000 0.000 0.000]
+obstacle_return 0
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.05 3 0]
+  color "black"
+  pose [-3 0.000 0.000 0.000]
+obstacle_return 1
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.05 3 0]
+  color "black"
+  pose [3 0.000 0.000 0.000]
+obstacle_return 1
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [6 0.05 0]
+  color "black"
+  pose [0 1.500 0.000 0.000]
+obstacle_return 1
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [6 0.05 0]
+  color "black"
+  pose [0 -1.500 0.000 0.000]
+obstacle_return 1
+gui_move 0
+  origin [3 1.5 0 0]
+)
+
+# a block for gripping
+define puck model(
+  size [ 0.080 0.080 0.100 ]
+  gripper_return 1
+  gui_move 1
+  gui_nose 0
+  fiducial_return 1
+  obstacle_return 1
+)
+
+#puck( pose [-9.114 2.467 0 -105.501 ] color "red" )
+#puck( pose [-9.045 2.624 0 -37.717 ] color "purple" )
+#puck( pose [1 1 0 1 ] color "orange" )
+
+model 
+(
+  size [0.05 6 1]
+  color "black"
+  pose [9 0 0.000 0.000]
+obstacle_return 1
+gui_move 0
+  origin [3 1.5 0 0]
+)
+model 
+(
+  size [0.05 6 1]
+  color "black"
+  pose [9 0 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  origin [3 1.5 0 0]
+)
+model 
+(
+  size [0.05 6 1]
+  color "black"
+  pose [9 0 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  origin [3 1.5 0 0]
+)
+model 
+(
+  size [6 0.05 1]
+  color "black"
+  pose [9 -0.25 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [6 0.05 1]
+  color "black"
+  pose [9 0.25 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  origin [3 1.5 0 0]
+)
+
+model 
+(
+  size [0.07 0.07 1]
+  color "green"
+  pose [-0.25 1.2 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  
+)
+model 
+(
+  size [0.07 0.07 1]
+  color "green"
+  pose [-0.5 2.5 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  
+)
+model 
+(
+  size [0.07 0.07 1]
+  color "green"
+  pose [-0.3 0.5 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  
+)
+model 
+(
+  size [0.07 0.07 1]
+  color "green"
+  pose [-0.7 3.2 0.000 0.000]
+obstacle_return 1
+gui_move 1
+  
+)
+#model
+#(
+#  size [2.0 1.0]
+#  color "yellow"
+#  pose [2.000 2.000 0.000]
+#)
+
+ 

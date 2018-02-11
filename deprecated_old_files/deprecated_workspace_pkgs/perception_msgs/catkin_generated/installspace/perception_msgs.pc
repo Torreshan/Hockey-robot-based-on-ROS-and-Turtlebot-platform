@@ -1,0 +1,8 @@
+prefix=/nas/ei/home/ga62gis/gruppe3/workspace/install
+
+Name: perception_msgs
+Description: Description of perception_msgs
+Version: 0.0.1
+Cflags: -I/nas/ei/home/ga62gis/gruppe3/workspace/install/include
+Libs: -L/nas/ei/home/ga62gis/gruppe3/workspace/install/lib 
+Requires: std_msgs geometry_msgs sensor_msgs message_runtime

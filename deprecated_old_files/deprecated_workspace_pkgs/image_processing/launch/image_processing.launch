@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+
+	<!-- Kinect or orbeec	-->
+	<!--	<include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" /> -->
+        <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" />
+	<!-- Face detection -->	
+	
+	<!-- Segmentation -->	
+	
+	<!-- Tracker -->
+	
+	<node name = "face_detection" pkg = "face_detection" type = "face_detection" output = "screen"/>
+	<node name = "tracker" pkg = "tracker" type = "trackernode" output = "screen"/>
+	<node name = "color_segmentation" pkg = "segmentation" type = "color_segmentation" output = "screen"/>
+        <node name = "edge_segmentation" pkg = "segmentation" type = "edge_segmentation" output = "screen"/>
+
+</launch>
+
+

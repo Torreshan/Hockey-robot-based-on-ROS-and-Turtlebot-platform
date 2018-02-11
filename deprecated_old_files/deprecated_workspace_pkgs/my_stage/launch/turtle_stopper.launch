@@ -1,0 +1,51 @@
+<launch>
+        <!-- Settings / Map files -->
+        <arg name="map_file" default="$(find my_stage)/world/maze.yaml" />
+        <arg name="world_file" default="$(find my_stage)/world/maze.world" />
+        <arg name="base"       default="$(optenv TURTLEBOT_BASE kobuki)"/>  <!-- create, rhoomba -->
+        <arg name="stacks"     default="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
+        <arg name="3d_sensor"  default="$(optenv TURTLEBOT_3D_SENSOR asus_xtion_pro)"/>  <!-- kinect, asus_xtion_pro -->
+
+        <arg name="serialport"        default="$(env TURTLEBOT_SERIAL_PORT)"  doc="used by create to configure the port it is connected on [/dev/ttyUSB0, /dev/ttyS0]"/>
+        <!-- Make the stage map available to ROS nodes -->
+        <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" respawn="false">
+                <param name="frame_id" value="/map" />
+        </node>
+
+        <!-- Provide the exact position of our robot in stage to ROS nodes -->
+        <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false" output="screen">
+          <param name="odom_frame_id" value="odom" />
+          <param name="base_frame_id" value="base_link" />
+        </node>
+
+        <!-- Load the turtlebot robot model for RViz et al. -->
+        <include file="$(find turtlebot_bringup)/launch/includes/robot.launch.xml">
+                <arg name="base" value="$(arg base)" />
+                <arg name="stacks" value="$(arg stacks)" />
+                <arg name="3d_sensor" value="$(arg 3d_sensor)" />
+        </include>
+
+        <node pkg="tf" type="static_transform_publisher" name="lidar_transform_publisher" args="0 0 0.25 3.1415926 0 0 base_link rplidar 100" />
+        <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+                <param name="use_gui" value="false"/>
+        </node-->
+	<!-- RPLidar -->
+
+	<node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
+	<param name="serial_port"         type="string" value="/dev/rplidar"/>
+	<param name="serial_baudrate"     type="int"    value="115200"/>
+	<param name="frame_id"            type="string" value="rplidar"/>
+	<param name="inverted"            type="bool"   value="false"/>
+	<param name="angle_compensate"    type="bool"   value="true"/>
+	<remap from="scan" to="base_scan"/>
+	</node>
+
+	<include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
+	<arg name="base" value="$(arg base)" />
+	<arg name="serialport" value="$(arg serialport)" />
+	</include>
+        <!-- Let the simulated robot do something -->
+        <node name="stopper" pkg="my_stage" type="stopper" output="screen" >
+                <remap from="cmd_vel" to="mobile_base/commands/velocity"/>
+        </node>
+</launch>

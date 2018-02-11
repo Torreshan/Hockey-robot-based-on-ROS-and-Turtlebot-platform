@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+
+	<!-- Kinect or orbeec	-->
+	<!--	<include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" /> -->
+        <!-- <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" /> -->
+	<!-- Face detection -->
+
+	<!-- Segmentation -->
+
+	<!-- Tracker -->
+
+	<node name = "robot_driver" pkg = "turtle_vis" type = "robot_driver" output = "screen"/>
+	<node name = "findhockey" pkg = "segmentation" type = "findhockey" output = "screen"/>
+	<node name = "myCylinder" pkg = "lidar_processing" type = "myCylinder" output = "screen"/>
+	<node name = "hockeysearch" pkg = "hockeysearch" type = "hockeysearch" output = "screen"/>
+	<node name = "main_state_machine" pkg = "main_state_machine" type = "main_state_machine" output = "screen" />
+	<node name = "main" pkg = "segmentation" type = "main" output = "screen" />
+	<node name = "findab" pkg = "lidar_processing" type = "findab" output = "screen" />
+	<node name = "playground_idenfication" pkg = "segmentation" type = "playground_idenfication" output = "screen"/>
+
+</launch>
