@@ -15,8 +15,6 @@ The group members are:<br>
 4.Wu, Yingyu<br>
 5.Dong, Chao<br>
 
-The best teamwork~
-
 
 
 
