@@ -8,14 +8,5 @@ The launcher.launch file in main_state_machine package launches all nodes.
 
 If there is anything not working, do git reset --hard 5824eae7 to reset the repository back to the competition version, or 1472c0e7, the problematical last-sec "final" version.<br>
 
-The group members are:<br>
-1.Han, Fengze<br>
-2.Qu, Xingwei<br>
-3.Wang, Daoping<br>
-4.Wu, Yingyu<br>
-5.Dong, Chao<br>
-
-
-
 
 
