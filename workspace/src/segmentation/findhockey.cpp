@@ -887,7 +887,7 @@ bool finish_to_color(std_srvs::Empty::Request &req1,std_srvs::Empty::Response &r
 
 int main(int argc, char** argv){
     //Facedetection::imagecallback &imagedeal;
-    ros::init(argc,argv,"color_segmentation");
+    ros::init(argc,argv,"find_hockey");
     ros::NodeHandle n;
     //ros::Subscriber image_sub = n.subscribe("/kinect2/hd/image_color",&Facedetection::imagecallback);
     //ros::Publisher bb_pub = n.advertise<perception_msgs::Rect>("face_detection/bb",1);
