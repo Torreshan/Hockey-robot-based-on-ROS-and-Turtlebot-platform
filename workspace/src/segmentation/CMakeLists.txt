@@ -212,7 +212,7 @@ target_link_libraries(playground_idenfication ${catkin_LIBRARIES} ${OpenCV_LIBS}
 add_executable(main main.cpp)
 target_link_libraries(main ${catkin_LIBRARIES} ${OpenCV_LIBS})
 add_dependencies(main segmentation_generate_messages_cpp )
-add_executable(findhockey findhockey.cpp)
+add_executable(findhockey find_hockey.cpp)
 target_link_libraries(findhockey ${catkin_LIBRARIES} ${OpenCV_LIBS})
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
