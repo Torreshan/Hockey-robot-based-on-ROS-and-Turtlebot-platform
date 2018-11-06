@@ -6,7 +6,5 @@
 
 The launcher.launch file in main_state_machine package launches all nodes.
 
-If there is anything not working, do git reset --hard 5824eae7 to reset the repository back to the competition version, or 1472c0e7, the problematical last-sec "final" version.<br>
-
 
 
